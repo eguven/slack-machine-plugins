@@ -33,14 +33,12 @@ class PublishCommand(Command):
         pass
 
     def _remove_builds(self, msg):
-        try:
-            self.status(msg)
-            rmtree(os.path.join(here, 'dist'))
-            rmtree(os.path.join(here, 'build'))
-            rmtree(os.path.join(here, '.egg'))
-            rmtree(os.path.join(here, 'slack_machine.egg-info'))
-        except FileNotFoundError:
-            pass
+        self.status(msg)
+        for subdir in ['dist', 'build', '.egg', 'slack_machine_plugins.egg-info']:
+            try:
+                rmtree(os.path.join(here, subdir))
+            except FileNotFoundError:
+                pass
 
     def run(self):
         try:
@@ -55,7 +53,6 @@ class PublishCommand(Command):
         os.system('twine upload dist/*')
 
         self._remove_builds('Removing builds…')
-
         sys.exit()
 
 
@@ -64,6 +61,7 @@ setup(
     version=meta.__version__,
     description=meta.__description__,
     long_description=long_description,
+    long_description_content_type='text/markdown',
     license=meta.__license__,
     url=meta.__url__,
     author=meta.__author__,
