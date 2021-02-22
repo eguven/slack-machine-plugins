@@ -13,7 +13,7 @@ __title__ = 'slack-machine-plugins'
 __description__ = 'Utility plugins for Slack-Machine, the sexy, simple, yet powerful and extendable Slack bot'
 __url__ = 'https://github.com/eguven/slack-machine-plugins'
 
-__version_info__ = (0, 2, 0, 'dev1')
+__version_info__ = (0, 1, 1)
 __version__ = '.'.join(map(str, __version_info__))
 
 __author__ = 'Eren Güven'
