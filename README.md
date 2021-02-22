@@ -1,7 +1,5 @@
 # slack-machine-plugins
 
-[slack-machine-plugins](https://github.com/eguven/slack-machine-plugins)
-
 Utility plugins for Slack-Machine, the sexy, simple, yet powerful and extendable Slack bot.
 
 ```shell
